@@ -2,14 +2,17 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
-export ZSH="/home/chenzhuo/.oh-my-zsh"
+export ZSH=$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-ZSH_THEME="myagnoster"
+# you can customize color here
+ZSH_THEME="agnoster"
+export AGNOSTER_CONTEXT_BG=23
+export AGNOSTER_GIT_CLEAN_BG=178
+export AGNOSTER_DIR_BG=075
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -108,22 +111,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/chenzhuo/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/chenzhuo/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/chenzhuo/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/chenzhuo/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-#
-
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -148,6 +135,6 @@ alias tn="tmux new-session -A -s"
 
 prompt_context() {}
 
-[[ -s /home/chenzhuo/.autojump/etc/profile.d/autojump.sh ]] && source /home/chenzhuo/.autojump/etc/profile.d/autojump.sh
+[[ -s /home/usr/.autojump/etc/profile.d/autojump.sh ]] && source /home/usr/.autojump/etc/profile.d/autojump.sh
 
 clear
