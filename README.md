@@ -37,6 +37,8 @@ patch -p1 < xxx.patch
 make -j $(nproc)
 make install
 cd ..
+
+# 修改启动脚本，自动切换到zsh
 echo 'export PATH="/home/username/soft/zsh/build/bin:$HOME/.local/bin:$PATH"' >> ~/.profile
 echo '[ -f /home/username/soft/zsh/build/bin/zsh ] && exec /home/username/soft/zsh/build/bin/zsh -l' >> ~/.profile
 ```
@@ -73,17 +75,19 @@ export AGNOSTER_DIR_BG=075
 
 ----
 然后
-```
+```sh
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 ### PS： 如果无法联网可以直接上传(github项目解压上传之后直接放下面这个目录)
 到这个文件夹：/home/username/.oh-my-zsh/custom/plugins
 
-```
-git clone git://github.com/joelthelion/autojump.git
+```sh
+git clone git://github.com/wting/autojump.git
 ./install.py
 ```
+然后在`.zshrc`中添加`[[ -s /home/username/.autojump/etc/profile.d/autojump.sh ]] && source /home/username/.autojump/etc/profile.d/autojump.sh`
+
 autojump 注意：如果下载不了需要去.zshrc里面删除包含autojump的两行
 
 # 离线环境迁移
