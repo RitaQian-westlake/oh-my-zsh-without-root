@@ -13,17 +13,17 @@
 
 ### 下述已经存在 zsh.sh 中，直接bash zsh.sh即可
 ```sh
-cd ncurses  # assuming /home/user/soft/ncurses
+cd ncurses  # assuming /home/username/soft/ncurses
 mkdir build
 export CXXFLAGS=" -fPIC"
 export CFLAGS=" -fPIC"
-./configure --prefix=/home/user/soft/ncurses/build --enable-shared
+./configure --prefix=/home/username/soft/ncurses/build --enable-shared
 make -j $(nproc)
 make install
 cd ..
 cd zsh
 mkdir build
-INSTALLATION_PATH=/home/user/soft/zsh/build
+INSTALLATION_PATH=/home/username/soft/zsh/build
 export PATH=$INSTALLATION_PATH/bin/:$PATH
 export LD_LIBRARY_PATH=$INSTALLATION_PATH/lib:$LD_LIBRARY_PATH
 export CFLAGS=-I$INSTALLATION_PATH/include
@@ -37,8 +37,8 @@ patch -p1 < xxx.patch
 make -j $(nproc)
 make install
 cd ..
-echo 'export PATH="/home/user/soft/zsh/build/bin:$HOME/.local/bin:$PATH"' >> ~/.profile
-echo '[ -f /home/user/soft/zsh/build/bin/zsh ] && exec /home/user/soft/zsh/build/bin/zsh -l' >> ~/.profile
+echo 'export PATH="/home/username/soft/zsh/build/bin:$HOME/.local/bin:$PATH"' >> ~/.profile
+echo '[ -f /home/username/soft/zsh/build/bin/zsh ] && exec /home/username/soft/zsh/build/bin/zsh -l' >> ~/.profile
 ```
 
 ### 以下部分需要单独运行
@@ -62,16 +62,15 @@ zsh
 ~~当遇到：Do you want to change your default shell to zsh? [Y/n] 选择 **n**~~
 
 
-## 然后自定义主题：
-### 修改 ~/.zshrc
+## 替换 ~/.zshrc
+### 其中自定义主题：
 ```sh
 ZSH_THEME="agnoster"
-export AGNOSTER_CONTEXT_BG=23
+export AGNOSTER_CONTEXT_BG=23  # customize color by changing id
 export AGNOSTER_GIT_CLEAN_BG=178
 export AGNOSTER_DIR_BG=075
 ```
 
-### 替换 ~/.zshrc
 ----
 然后
 ```
@@ -79,7 +78,7 @@ git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-m
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 ```
 ### PS： 如果无法联网可以直接上传(github项目解压上传之后直接放下面这个目录)
-到这个文件夹：/home/chenzhuo/.oh-my-zsh/custom/plugins
+到这个文件夹：/home/username/.oh-my-zsh/custom/plugins
 
 ```
 git clone git://github.com/joelthelion/autojump.git
@@ -121,10 +120,10 @@ pip install --no-index --find-links=/home/chenzhuo/pkage -r depency.txt
 4、./configure --prefix=/home/chenzhuo/htop
 5、make && make install
 ```
-此时，在/home/user/htop/bin目录下，会生成可执行文件htop, 以下命令加在最后
+此时，在/home/username/htop/bin目录下，会生成可执行文件htop, 以下命令加在最后
 
 ```
-cd /home/user
+cd /home/username
 vim .bashrc
 export  PATH=/home/chenzhuo/htop/bin:$PATH
 source .bashrc
