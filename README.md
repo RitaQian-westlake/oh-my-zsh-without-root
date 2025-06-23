@@ -12,27 +12,33 @@
 - tar -xvf zsh.tar
 
 ### 下述已经存在 zsh.sh 中，直接bash zsh.sh即可
-```
-cd ncurses
+```sh
+cd ncurses  # assuming /home/user/soft/ncurses
+mkdir build
 export CXXFLAGS=" -fPIC"
 export CFLAGS=" -fPIC"
-./configure --prefix=$HOME --enable-shared
-make
+./configure --prefix=/home/user/soft/ncurses/build --enable-shared
+make -j $(nproc)
 make install
 cd ..
 cd zsh
-INSTALLATION_PATH=$HOME
+mkdir build
+INSTALLATION_PATH=/home/user/soft/zsh/build
 export PATH=$INSTALLATION_PATH/bin/:$PATH
 export LD_LIBRARY_PATH=$INSTALLATION_PATH/lib:$LD_LIBRARY_PATH
 export CFLAGS=-I$INSTALLATION_PATH/include
 export CPPFLAGS="-I$INSTALLATION_PATH/include"
 export LDFLAGS="-L$INSTALLATION_PATH/lib"
-./configure --prefix=$HOME --enable-shared
-make
+
+# 如果gcc版本为14以上，需要从https://github.com/openwrt/packages/tree/master/utils/zsh/patches 下载全部patch，并置于当前路径下，并按照序号逐个patch
+patch -p1 < xxx.patch
+
+./configure --prefix=$INSTALLATION_PATH --enable-shared
+make -j $(nproc)
 make install
 cd ..
-echo 'export PATH="$HOME/bin:$HOME/.local/bin:$PATH"' >> ~/.profile
-echo '[ -f $HOME/bin/zsh ] && exec $HOME/bin/zsh -l' >> ~/.profile
+echo 'export PATH="/home/user/soft/zsh/build/bin:$HOME/.local/bin:$PATH"' >> ~/.profile
+echo '[ -f/home/user/soft/zsh/build/bin/zsh ] && exec /home/user/soft/zsh/build/bin/zsh -l' >> ~/.profile
 ```
 
 ### 以下部分需要单独运行
