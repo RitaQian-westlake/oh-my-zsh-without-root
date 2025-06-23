@@ -30,7 +30,7 @@ export CFLAGS=-I$INSTALLATION_PATH/include
 export CPPFLAGS="-I$INSTALLATION_PATH/include"
 export LDFLAGS="-L$INSTALLATION_PATH/lib"
 
-# 如果gcc版本为14以上，需要从https://github.com/openwrt/packages/tree/master/utils/zsh/patches 下载全部patch，并置于当前路径下，并按照序号逐个patch
+# 如果gcc版本为14以上，需要从https://github.com/openwrt/packages/tree/master/utils/zsh/patches 下载全部patch，置于当前路径下，并按照序号逐个patch
 patch -p1 < xxx.patch
 
 ./configure --prefix=$INSTALLATION_PATH --enable-shared
@@ -38,7 +38,7 @@ make -j $(nproc)
 make install
 cd ..
 echo 'export PATH="/home/user/soft/zsh/build/bin:$HOME/.local/bin:$PATH"' >> ~/.profile
-echo '[ -f/home/user/soft/zsh/build/bin/zsh ] && exec /home/user/soft/zsh/build/bin/zsh -l' >> ~/.profile
+echo '[ -f /home/user/soft/zsh/build/bin/zsh ] && exec /home/user/soft/zsh/build/bin/zsh -l' >> ~/.profile
 ```
 
 ### 以下部分需要单独运行
