@@ -54,19 +54,24 @@ zsh
 
 
 在文件夹/home/chenzhuo/.oh-my-zsh/tools中把install.sh文件修改：
-- 搜索字符串 already 将`If this user's login shell is already "zsh", do not attempt to switch.`下的 if 语句删除
+- 搜索字符串 already, 将`If this user's login shell is already "zsh", do not attempt to switch.`下的 if 语句删除
 
 然后执行安装脚本 install.sh 文件
 `sh install.sh --skip-chsh`
+
 ~~当遇到：Do you want to change your default shell to zsh? [Y/n] 选择 **n**~~
 
 
-## 然后数据拷贝进去：
-### chenzhuo/.oh-my-zsh/themes
-myagnoster.zsh-theme 
+## 然后自定义主题：
+### 修改 ~/.zshrc
+```sh
+ZSH_THEME="agnoster"
+export AGNOSTER_CONTEXT_BG=23
+export AGNOSTER_GIT_CLEAN_BG=178
+export AGNOSTER_DIR_BG=075
+```
 
-### 替换.zshrc
-
+### 替换 ~/.zshrc
 ----
 然后
 ```
