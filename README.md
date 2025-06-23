@@ -42,7 +42,7 @@ echo '[ -f /home/user/soft/zsh/build/bin/zsh ] && exec /home/user/soft/zsh/build
 ```
 
 ### 以下部分需要单独运行
-```
+```sh
 exit #退出
 #....connect...
 
@@ -52,12 +52,12 @@ zsh
 ```
 【这个地方如果没有网的话，直接把ohmyzsh的项目下载下来，上传服务器，改名为.oh-my-zsh】
 
+
 在文件夹/home/chenzhuo/.oh-my-zsh/tools中把install.sh文件修改：
-- 删除 setup_ohmyzsh 函数
-- 搜索 setup_ohmyzsh 字符串，将调用的地方删除
-- 搜索字符串 already 将附近 if 语句全部删除
+- 搜索字符串 already 将`If this user's login shell is already "zsh", do not attempt to switch.`下的 if 语句删除
 
 然后执行安装脚本 install.sh 文件
+`sh install.sh --skip-chsh`
 当遇到：Do you want to change your default shell to zsh? [Y/n] 选择 **n** 
 
 
