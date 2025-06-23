@@ -58,7 +58,7 @@ zsh
 
 然后执行安装脚本 install.sh 文件
 `sh install.sh --skip-chsh`
--当遇到：Do you want to change your default shell to zsh? [Y/n] 选择 **n**-
+~~当遇到：Do you want to change your default shell to zsh? [Y/n] 选择 **n**~~
 
 
 ## 然后数据拷贝进去：
